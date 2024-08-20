@@ -273,16 +273,19 @@ function renderItems() {
     itemsForRound.forEach(item => {
         // itemDiv = div 요소 추가 후 css에 존재하는 item 클래스랑 가챠 결과로 나온 아이템의 등급을 추가
         const itemDiv = document.createElement('div');
+        // flipCardBack가 카드 뒷면을 담당할 요소
         const flipCardBack = document.createElement('div');
         itemDiv.classList.add('item', item.rarity);
+        // flipCardBack 요소에 .item.flip-card-back 클래스 선택자 추가
         flipCardBack.classList.add('item', 'flip-card-back');
         // 그렇게 나온 가챠 결과의 내용을 name 속성에 있는 이름으로 지정
         itemDiv.textContent = item.name;
         // 5
         // 또한 아이템을 클릭으로 골랐을 경우
         itemDiv.onclick = () => pickItem(item);
-        // 상기 내용을 itemsDiv의 자식 노드로 추가시킨다
+        // 상기 내용을 itemDiv의 자식 노드로 추가시킴으로 카드 뒷면은 itemDiv의 자식으로 들어간다
         itemDiv.appendChild(flipCardBack);
+        // 이 모든 내용을 itemsDiv에 자식 노드로 추가시켜 웹사이트에 표현한다
         itemsDiv.appendChild(itemDiv);
         anime({
             targets: flipCardBack,
