@@ -1,11 +1,13 @@
-const fs = require('fs');
-require('http').createServer((req, res) => {
-    const index = './gacha.html';
-    const files = ['/gachadesign.css', '/gachascript.js'];
-    if (req.url === '/')
-        res.end(fs.readFileSync(index, 'utf8'));
-    if (files.includes(req.url)) {
-        res.end(fs.readFileSync('.' + req.url, 'utf8'));
-    }
-    res.end();
-}).listen(4000);
+const express = require("express");
+const path = require("path");
+
+const app = express();
+const PORT = 4000;
+
+// Static Middleware
+app.use("/", express.static(path.join(__dirname, "public")));
+
+app.listen(PORT, function (err) {
+  if (err) console.log(err);
+  console.log("Server listening on PORT", PORT);
+});

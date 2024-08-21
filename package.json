@@ -1,0 +1,19 @@
+{
+  "name": "gacha-system",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "main": "node server.js",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.10.1",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.2.5"
+  }
+}
